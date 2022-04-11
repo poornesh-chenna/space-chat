@@ -9,11 +9,11 @@ function Start() {
         <div className="container">
           <div className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div className="d-flex row">
-              <h1 className="d-flex justify-content-center">Space chat</h1>
+              <h1 className="logo d-flex justify-content-center">Space chat</h1>
               <div className="d-flex justify-content-center">
                 <img
                   className="w-50 p-3"
-                  src="./images/cloud.jpg"
+                  src="./images/chatgiphy.gif"  
                   alt="chatimage"
                 />
               </div>
