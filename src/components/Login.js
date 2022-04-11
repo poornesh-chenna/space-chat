@@ -1,31 +1,33 @@
 import React from "react";
+import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 
 function Login() {
+  function log(){
+     axios.post("http://localhost:5000/")
+     .then((res)=>log(res.data))
+  }
+
   return (
     <div className="d-flex flex-row min-vh-100 justify-content-center align-items-center">
       <Form className="m-5">
         <h2 className="mb-5">Welcome back!</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          <Form.Control name="email" type="email" placeholder="Enter email" />
+          
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control name="password" type="password" placeholder="Password" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
+        
+        <Button variant="primary" type="submit" onClick={log} >
           Submit
         </Button>
       </Form>
-      <img src=".\images\phoneimage.jpg" />
+      <img src=".\images\phoneimage.jpg" alt="phoneimg" />
     </div>
   );
 }
