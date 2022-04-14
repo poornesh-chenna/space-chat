@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 
 function Login() {
   function log(){
-     axios.post("http://localhost:5000/")
+     axios.post("http://localhost:5000/login")
      .then((res)=>log(res.data))
   }
 

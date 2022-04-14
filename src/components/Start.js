@@ -26,7 +26,7 @@ function Start() {
                 >
                   Register
                 </Link>
-                <Link class="btn btn-dark btn-lg" to="/Login" role="button">
+                <Link className="btn btn-dark btn-lg" to="/Login" role="button">
                   Login
                 </Link>
               </div>
