@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Start from "./Start";
 import Register from "./Register"
 import Login from "./Login"
 import Chatpage from "./Chatpage";
+import NotFound from "./NotFound";
 
 function App(){
+   const [isAuthenticated, setAuthenticated] = useState(false)
+   const [userEmail,setUserEmail] = useState()
+
+   const Registereduser = (user)=>{
+       setUserEmail(user)
+       setAuthenticated(true)
+   }
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Start/>} />
-                <Route path="/Register" element = {<Register/>} />
-                <Route path="/Login" element = {<Login/>} />
-                <Route path="/Chatpage" element = {<Chatpage/>} />
+                <Route exact path="/" element={<Start/>} />
+                <Route exact path="/Register" element = {<Register/>} />
+                <Route exact path="/Login" element = {<Login Registereduser={Registereduser}/>} />
+                <Route exact path="/Chatpage" element = {<Chatpage user={userEmail} isAuthenticated={isAuthenticated}/>} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
         

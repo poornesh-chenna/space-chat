@@ -5,62 +5,68 @@ import { Form, Button } from "react-bootstrap";
 
 function Register() {
   const navigate = useNavigate();
-  const [user , setUser] = useState({
-    name : "",
-    email : "",
-    password: ""
-  })
-  const handleChange = e=>{
-    const {name , value} = e.target
-    setUser({
-      ...user,
-      [ name ]:value
-    })
-  }
-   const reg = ()=>{
-     const {name,email,password} = user
-     if(name && email && password){
-      axios.post("http://localhost:5000/register",user)
-      .then((res)=>{
+  const [username, setUserName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const reg = async (event) => {
+    event.preventDefault();
+
+    let registereduser = {
+      name: username,
+      email: email,
+      password: password,
+    };
+   const headers = {
+      "Content-Type": "application/json",
+    };
+    await axios
+      .post("http://localhost:5000/register", registereduser, headers)
+      .then((res) => {
         console.log("success");
-        console.log(res);
-      })
-      .catch((reg)=>{
-         console.log(reg);
-      })
-     } else {
-        alert("Invalid Input")
-     }
-     
-     navigate("../Chatpage",{replace:"true"})
-   }
-  
+        console.log(res.data);
+        navigate("/Login");
+      });
+  };
 
   return (
     <div className="d-flex flex-row min-vh-100 justify-content-center align-items-center">
-      <Form action="/Chatpage" className="m-5">
+      <Form className="m-5">
         <h2 className="mb-5">New user Registeration</h2>
-        <Form.Group className="mb-3">
+        <Form.Group
+          className="mb-3"
+          onChange={(e) => setUserName(e.target.value)}
+        >
           <Form.Label>User Name</Form.Label>
-          <Form.Control onChange={handleChange} name="name" value={user.name} type="text" placeholder="Enter name" />
+          <Form.Control name="name" type="text" placeholder="Enter name" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group
+          className="mb-3"
+          controlId="formBasicEmail"
+          onChange={(e) => setEmail(e.target.value)}
+        >
           <Form.Label>Email address</Form.Label>
-          <Form.Control onChange={handleChange} name="email" value={user.email} type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            No spams. PROMISE!
-          </Form.Text>
+          <Form.Control name="email" type="email" placeholder="Enter email" />
+          <Form.Text className="text-muted">No spams. PROMISE!8</Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group
+          className="mb-3"
+          controlId="formBasicPassword"
+          onChange={(e) => setPassword(e.target.value)}
+        >
           <Form.Label>Password</Form.Label>
-          <Form.Control onChange={handleChange} name="password" value={user.password} type="password" placeholder="Password" />
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
-        
+
         <Button variant="primary" type="submit" onClick={reg}>
           Submit
         </Button>
       </Form>
-      <img src=".\images\phoneimage.jpg" alt="phonechatimage"/>
+      <img src=".\images\phoneimage.jpg" alt="phonechatimage" />
     </div>
   );
 }

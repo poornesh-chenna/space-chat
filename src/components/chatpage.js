@@ -1,11 +1,14 @@
 import React from "react";
 
 
-function Chatpage(){
+function Chatpage(props){
     return(
-        <>
-            <h1>Welcome</h1>
-        </>
+        props.isAuthenticated ? 
+            <h1>Welcome {props.user.email}</h1> :
+            <>
+                please login
+            </>
+        
     )
 }
 
