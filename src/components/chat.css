@@ -1,0 +1,35 @@
+.layout{
+    
+    height: 90vh;
+    max-height: 90vh;
+    margin-top: 5%;
+    display:inline-block
+
+}
+.container{
+    margin-top: 2%;
+}
+.chatrooms{
+  border-radius: 8px 0 0 8px;
+}
+
+.chats{
+  border-radius:0 8px 8px 0;
+  background-color: darkgrey;
+}
+
+.createchannel{
+  border-bottom: 1px solid darkgray ;
+}
+
+.addbutton{
+  margin-left: 1rem;
+}
+
+.roombtn{
+  width: 100%;
+  /* font-size:18px; */
+    /* line-height:1.33; */
+    /* border-radius:6px; */
+    /* padding:10px 16px; */
+}

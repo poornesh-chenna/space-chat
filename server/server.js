@@ -42,8 +42,17 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 });
+const roomSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
 
 const User = new mongoose.model("user", userSchema);
+
+const Room = new mongoose.model("room", roomSchema);
 
 app.get("/", (req, res) => {
   res.send("server is running");
@@ -85,20 +94,47 @@ app.post("/login", (req, res) => {
   User.findOne({ email: mail }, (err, founduser) => {
     if (err) {
       console.log(err);
-      res.status(500).send("Failed to login")
-    }
-    else {
+      res.status(500).send("Failed to login");
+    } else {
       if (founduser) {
         if (founduser.password === password) {
           console.log("userfound");
-          res.status(200).send()
+          console.log(founduser);
+          res.status(200).send(founduser.name);
         } else {
           console.log("invalid password");
-          res.status(400).send("invalid password")
+          res.status(400).send("invalid password");
         }
       } else {
         console.log("please register first");
-        res.status(400).send("Please register")
+        res.status(400).send("Please register");
+      }
+    }
+  });
+});
+
+app.post("/Chatpage", (req, res) => {
+  console.log(req.body);
+  const title = req.body.title;
+  Room.findOne({ title: title }, (err, foundTitle) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Failed to add");
+    } else {
+      if (foundTitle) {
+        console.log("Title is already existing");
+        res.status(400).send("title name is taken");
+      } else {
+        
+        Room.create({title: title},(err,resp) => {
+          if (err) {
+            console.log(err);
+            resp.status(500).send("Failed to add user");
+          } else {
+            console.log("successfully added to room db");
+             resp.send();
+          }
+        });
       }
     }
   });

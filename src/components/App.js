@@ -8,7 +8,10 @@ import NotFound from "./NotFound";
 
 function App(){
    const [isAuthenticated, setAuthenticated] = useState(false)
-   const [userEmail,setUserEmail] = useState()
+   const [inuser,setUserEmail] = useState({
+       email:"",
+       name:""
+   })
 
    const Registereduser = (user)=>{
        setUserEmail(user)
@@ -21,7 +24,7 @@ function App(){
                 <Route exact path="/" element={<Start/>} />
                 <Route exact path="/Register" element = {<Register/>} />
                 <Route exact path="/Login" element = {<Login Registereduser={Registereduser}/>} />
-                <Route exact path="/Chatpage" element = {<Chatpage user={userEmail} isAuthenticated={isAuthenticated}/>} />
+                <Route exact path="/Chatpage" element = {<Chatpage user={inuser} isAuthenticated={isAuthenticated}/>} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
