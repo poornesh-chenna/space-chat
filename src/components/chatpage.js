@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./chat.css";
 
 function Chatpage(props) {
   const [newtitle, setTitle] = useState();
-  const [titles, setTitles] = useState([]);
+ // const [titles, setTitles] = useState([]);
+  const titles = [];
+  useEffect(()=>{
+    axios
+  .get("http://localhost:5000/Chatpage")
+  .then((response) => {
+    console.log(response.data);
+     response.data.forEach(element => {
+       titles.push(element)
+     });
+     console.log("successfully retrieved "+titles);
+  })
+  .catch((error) => {
+    console.log("error in retrieving the data");
+    console.log(error);
+  });
+  },[])
+  
+
   const addChannel = async (event) => {
     event.preventDefault();
-    setTitles((prev) => {
-      return [...titles, newtitle];
-    });
-    console.log(titles);
+    // setTitles((prev) => {
+    //   return [...titles, newtitle];
+    // });
+    // console.log(titles);
     const newRoom = {
       title: newtitle,
     };
@@ -27,15 +45,7 @@ function Chatpage(props) {
         console.log("chatpage error");
         console.log(error);
       });
-      await axios
-      .get("http://localhost:5000/Chatpage")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error in retrieving the data");
-        console.log(error);
-      });
+     
   };
 
   return props.isAuthenticated ? (
@@ -116,16 +126,17 @@ function Chatpage(props) {
                 </div>
               </div>
             </div>
-             <ul>
+             
              {titles.map((list) => {
-              return <li className="mt-3">
+              return <div className="mt-3">
                 <button className="roombtn btn btn-dark btn-md border border-white">
                   {list}
                 </button>
-              </li>;
-            })}
-             </ul>
-            
+              </div>;
+            }) }
+            {console.log("in html"+titles)}
+             
+           
             <div className="mt-3">
               <button className="roombtn btn btn-dark btn-md border border-white">
                 Welcome

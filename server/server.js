@@ -113,6 +113,18 @@ app.post("/login", (req, res) => {
   });
 });
 
+app.get("/Chatpage",(req,res)=>{
+  const allrooms = [];
+  Room.find({},(err,rooms)=>{
+      rooms.forEach((room)=>{
+        allrooms.push(room.title)
+       // console.log(room.title);
+      })
+     // console.log("titles of rooms"+rooms._id);
+     res.status(200).send(allrooms)
+  })
+})
+
 app.post("/Chatpage", (req, res) => {
   console.log(req.body);
   const title = req.body.title;
@@ -129,10 +141,10 @@ app.post("/Chatpage", (req, res) => {
         Room.create({title: title},(err,resp) => {
           if (err) {
             console.log(err);
-            resp.status(500).send("Failed to add user");
+            res.status(500).send("Failed to add user");
           } else {
             console.log("successfully added to room db");
-             resp.send();
+             res.status(200).send();
           }
         });
       }
