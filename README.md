@@ -25,7 +25,7 @@ npm install
 npm run start
 ```
 
-## Technologies 
+## Technologies
 
 - React
 - node JS
@@ -35,7 +35,10 @@ npm run start
 
 ## Screenshots
 
+![Register or login page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/starting%20page.png)
 
+![Register page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/registerpage.png)
 
+![welcome page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/welcometospacechat.png)
 
-
+![chats](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/chatpage.png)
