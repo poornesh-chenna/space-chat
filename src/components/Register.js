@@ -1,36 +1,37 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import React, { useState } from 'react'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap'
+import './forms.css'
 
 function Register() {
-  const navigate = useNavigate();
-  const [username, setUserName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const navigate = useNavigate()
+  const [username, setUserName] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
 
   const reg = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     let registereduser = {
       name: username,
       email: email,
       password: password,
-    };
-   const headers = {
-      "Content-Type": "application/json",
-    };
+    }
+    const headers = {
+      'Content-Type': 'application/json',
+    }
     await axios
-      .post("http://localhost:5000/register", registereduser, headers)
+      .post('http://localhost:5000/register', registereduser, headers)
       .then((res) => {
-        console.log("success");
-        console.log(res.data);
-        navigate("/Login");
-      });
-  };
+        console.log('success')
+        console.log(res.data)
+        navigate('/Login')
+      })
+  }
 
   return (
-    <div className="d-flex flex-row min-vh-100 justify-content-center align-items-center">
+    <div className="forms d-flex flex-row min-vh-100 justify-content-center align-items-center">
       <Form className="m-5">
         <h2 className="mb-5">New user Registeration</h2>
         <Form.Group
@@ -47,7 +48,6 @@ function Register() {
         >
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">No spams. PROMISE!8</Form.Text>
         </Form.Group>
         <Form.Group
           className="mb-3"
@@ -65,10 +65,15 @@ function Register() {
         <Button variant="primary" type="submit" onClick={reg}>
           Submit
         </Button>
+        <Link className="mt-2 d-block text-light" to="/Login" role="button">
+          Already Registered?
+        </Link>
       </Form>
-      <img src=".\images\phoneimage.jpg" alt="phonechatimage" />
+      <div className="chatimg">
+        <img src=".\images\phoneimage.jpg" alt="phonechatimage" />
+      </div>
     </div>
-  );
+  )
 }
 
-export default Register;
+export default Register
