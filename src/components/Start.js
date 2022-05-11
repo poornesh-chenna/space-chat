@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./start.css";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './start.css'
 
 function Start() {
   return (
@@ -8,7 +8,7 @@ function Start() {
       <div className="started">
         <div className=" min-vh-100">
           <div className="sapace">
-            <div className="d-flex flex-column realspace">
+            <div className="d-flex flex-column shadow-lg realspace">
               <h1 className="logo d-inline-block">Space chat</h1>
               <div className="d-inline-block imglogo">
                 <img
@@ -39,7 +39,7 @@ function Start() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Start;
+export default Start
