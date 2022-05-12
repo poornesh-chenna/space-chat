@@ -10,7 +10,7 @@
 
 ## Installation
 
-###### To start the backend server
+#### To start the backend server
 
 ```
 cd server
@@ -18,7 +18,7 @@ npm install
 node server.js
 ```
 
-###### To start the React app
+#### To start the React app
 
 ```
 npm install
