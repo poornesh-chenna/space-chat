@@ -1,4 +1,4 @@
-# space-chat
+# space-chat (personal project)
 
 ## Features
 
