@@ -1,0 +1,119 @@
+.chatpage {
+  background-color: #fbda61;
+  background-image: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
+
+  height: 100vh;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  padding-top: 35px;
+  width: 85%;
+  margin: 0 auto;
+}
+.allmsgs::-webkit-scrollbar {
+  display: none;
+}
+.chatrooms::-webkit-scrollbar {
+  display: none;
+}
+.chatrooms {
+  border-radius: 8px 0 0 8px;
+  height: 90vh;
+  position: static;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #171717;
+  color: #fffdf9;
+}
+
+.chats {
+  border-radius: 0 8px 8px 0;
+  color: #fffdf9;
+  height: 90vh;
+  position: static;
+  background-color: #444444;
+}
+
+.createchannel {
+  border-bottom: 1px solid #605f5f;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.addbutton {
+  /* position: absolute; */
+  margin-bottom: 5px;
+}
+
+.roombtn {
+  width: 80%;
+  margin-left: 35px;
+  color: #fffdf9;
+  /* font-size:18px; */
+  /* line-height:1.33; */
+  /* border-radius:6px; */
+  /* padding:10px 16px; */
+}
+.btn:hover {
+  color: #fff;
+  background-color: #00b3db;
+  border-color: #285e8e; /*set the color you want here*/
+}
+.roombtn:hover {
+  text-size-adjust: 300px !important;
+}
+.roomscolumn {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.titlename {
+  margin-left: 16px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.sendbox {
+  margin-top: 4px;
+  /* position: absolute !important; */
+  /* top: 250px; */
+  width: 85% !important;
+  margin-left: 16px;
+}
+
+.chatclick {
+  height: 100%;
+  position: relative;
+}
+
+.chatenv {
+  margin-left: 20px;
+  height: 516px;
+}
+.msg {
+  margin-left: 5px;
+}
+
+.name {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: #d9d9d4;
+}
+.dateandtime {
+  margin-left: 4px;
+  color: #b4a5a5;
+  font-size: 0.8rem;
+}
+
+.allmsgs {
+  position: absolute;
+  width: 99%;
+  height: 516px;
+  overflow-y: scroll;
+  position: relative;
+  bottom: 0;
+  /* display: flex;
+  flex-direction: column-reverse; */
+}

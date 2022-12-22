@@ -3,24 +3,24 @@
 ## Features
 
 - By default, User is in the welcome channel
-- User can create a channel
-- User can join channel of his choice
-- User can send a message
-- User can see other peoples messages
+- User can create a room
+- User can select and join room created by other users
+- User can chat with the people in the same room
 
 ## Installation
 
 ###### To start the backend server
 
 ```
-cd server
+cd backend
 npm install
-node server.js
+npm run dev
 ```
 
 ###### To start the React app
 
 ```
+cd frontend
 npm install
 npm run start
 ```
