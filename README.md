@@ -1,4 +1,4 @@
-# space-chat
+# space-chat (personal project)
 
 ## Features
 
@@ -9,7 +9,7 @@
 
 ## Installation
 
-###### To start the backend server
+#### To start the backend server
 
 ```
 cd backend
@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-###### To start the React app
+#### To start the React app
 
 ```
 cd frontend
