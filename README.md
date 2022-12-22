@@ -35,10 +35,10 @@ npm run start
 
 ## Screenshots
 
-![Register or login page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/starting%20page.png)
+![Register or login page](https://github.com/poornesh-chenna/space-chat/blob/main/Frontend/screenshots/starting%20page.png)
 
-![Register page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/registerpage.png)
+![Register page](https://github.com/poornesh-chenna/space-chat/blob/main/Frontend/screenshots/registerpage.png)
 
-![welcome page](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/welcometospacechat.png)
+![welcome page](https://github.com/poornesh-chenna/space-chat/blob/main/Frontend/screenshots/welcometospacechat.png)
 
-![chats](https://github.com/poornesh-chenna/space-chat/blob/main/screenshots/chatpage.png)
+![chats](https://github.com/poornesh-chenna/space-chat/blob/main/Frontend/screenshots/chatpage.png)
